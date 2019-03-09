@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:61740/Services/ArticleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" />
+  <xs:element name="GetArticleByResearcher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="researcherId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticleByResearcherResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="GetArticleByResearcherResult" nillable="true" type="q1:ArrayOfArticle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddArticle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="researcherId" type="xs:int" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="article" nillable="true" type="q2:Article" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddArticleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddArticleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateArticle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="article" nillable="true" type="q3:Article" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateArticleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteArticle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="articleId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteArticleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="articleId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="GetArticleResult" nillable="true" type="q4:Article" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
