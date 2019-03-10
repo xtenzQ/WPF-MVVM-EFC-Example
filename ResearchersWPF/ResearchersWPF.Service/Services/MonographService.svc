@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ResearchersWPF.Service.Services.MonographService" CodeBehind="MonographService.svc.cs" %>

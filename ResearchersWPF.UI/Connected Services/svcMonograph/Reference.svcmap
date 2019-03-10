@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="462fe8ce-0713-4b06-93c8-e509365a230c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:61740/Services/MonographService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MonographService.xsd" MetadataType="Schema" ID="dfe46b31-6061-48bd-ac1e-ee8a1b2e7bff" SourceId="1" SourceUrl="http://localhost:61740/Services/MonographService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MonographService.disco" MetadataType="Disco" ID="497d17b8-7274-40c0-8777-6202f13b6d0e" SourceId="1" SourceUrl="http://localhost:61740/Services/MonographService.svc?disco" />
+    <MetadataFile FileName="MonographService1.xsd" MetadataType="Schema" ID="49c834e5-038a-4506-bc15-70eefa350d50" SourceId="1" SourceUrl="http://localhost:61740/Services/MonographService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MonographService2.xsd" MetadataType="Schema" ID="621d4a01-5ace-4af4-ac45-ceb96daf0d22" SourceId="1" SourceUrl="http://localhost:61740/Services/MonographService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MonographService.wsdl" MetadataType="Wsdl" ID="40251ec7-390d-419c-9667-f68aadde9a18" SourceId="1" SourceUrl="http://localhost:61740/Services/MonographService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

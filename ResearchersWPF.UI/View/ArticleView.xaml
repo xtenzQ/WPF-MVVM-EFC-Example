@@ -1,0 +1,57 @@
+﻿<Window x:Class="ResearchersWPF.UI.View.ArticleView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResearchersWPF.UI.View"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Добавить статью" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=FirstFocus}">
+    <Grid.CommandBindings>
+        <CommandBinding Command="New" Executed="AddCustomer_Executed" CanExecute="AddCustomer_CanExecute" />
+    </Grid.CommandBindings>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="auto"></RowDefinition>
+        <RowDefinition Height="auto"></RowDefinition>
+    </Grid.RowDefinitions>
+    <GroupBox Header="Статья" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">Название статьи</TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">Название журнала</TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0">Дата издания</TextBlock>
+            <TextBox x:Name="FirstFocus" Style="{StaticResource placeHolder}" Tag="Введите названние статьи" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
+            <TextBox Style="{StaticResource placeHolder}" Tag="Введите название журнала" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MagazineName,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
+            <xctk:DateTimePicker x:Name="DatePicker" TimeFormat="YearMonth" HorizontalAlignment="Left" MinWidth="130" Margin="5" Grid.Row="3" Grid.Column="1" TabIndex="2" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseDate,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
+        </Grid>
+    </GroupBox>
+    <Grid Grid.Row="1" Column="0" Height="auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="AddButton" Content="Добавить" Click="ButtonBase_OnClick" Command="New" Grid.Row="0" Grid.Column="0" Margin="5" Padding="5" />
+    </Grid>
+    </Grid>
+</Window>

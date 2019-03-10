@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="ResearchersWPF.UI.View.ResearcherListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ResearchersWPF.UI.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="RowButtons">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Edit" Command="{Binding ShowEditCommand}"/>
+                <Button x:Name="btnDeleteResearcher" Content="Delete" Command="{Binding DeleteCommand}"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <StackPanel>
+        <Button x:Name="btnAddResearcher" Content="Add Researcher" Width="90" HorizontalAlignment="Right" Margin="10 10 0 10" Command="{Binding ShowAddCommand}"/>
+        <ListView SelectionMode="Single" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName }"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding MiddleName }"/>
+                    <GridViewColumn Header="№ отдела" DisplayMemberBinding="{Binding DepartmentNumber }"/>
+                    <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding Age}"/>
+                    <GridViewColumn Header="Ученая степень" DisplayMemberBinding="{Binding AcademicDegree}"/>
+                    <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Position}"/>
+                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</UserControl>

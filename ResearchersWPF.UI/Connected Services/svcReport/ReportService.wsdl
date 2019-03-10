@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReportService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:61740/Services/ReportService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:61740/Services/ReportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:61740/Services/ReportService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReportService_GetReportByResearcher_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByResearcher" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetReportByResearcher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByResearcherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_AddReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_AddReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_UpdateReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_UpdateReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_DeleteReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_DeleteReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReportService">
+    <wsdl:operation name="GetReportByResearcher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetReportByResearcher" message="tns:IReportService_GetReportByResearcher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetReportByResearcherResponse" message="tns:IReportService_GetReportByResearcher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/AddReport" message="tns:IReportService_AddReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/AddReportResponse" message="tns:IReportService_AddReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/UpdateReport" message="tns:IReportService_UpdateReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/UpdateReportResponse" message="tns:IReportService_UpdateReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/DeleteReport" message="tns:IReportService_DeleteReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/DeleteReportResponse" message="tns:IReportService_DeleteReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetReport" message="tns:IReportService_GetReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetReportResponse" message="tns:IReportService_GetReport_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReportService" type="tns:IReportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReportByResearcher">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetReportByResearcher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/AddReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/UpdateReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/DeleteReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportService">
+    <wsdl:port name="BasicHttpBinding_IReportService" binding="tns:BasicHttpBinding_IReportService">
+      <soap:address location="http://localhost:61740/Services/ReportService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

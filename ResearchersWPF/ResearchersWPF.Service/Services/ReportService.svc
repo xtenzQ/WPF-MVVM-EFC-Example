@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ResearchersWPF.Service.Services.ReportService" CodeBehind="ReportService.svc.cs" %>

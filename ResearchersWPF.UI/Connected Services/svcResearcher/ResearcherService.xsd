@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:61740/Services/ResearcherService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" />
+  <xs:element name="GetResearchers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResearchersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="GetResearchersResult" nillable="true" type="q1:ArrayOfResearcher" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddResearcher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="middleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="age" type="xs:int" />
+        <xs:element minOccurs="0" name="academicDegree" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="position" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddResearcherResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddResearcherResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResearcher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="c" nillable="true" type="q2:Researcher" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResearcherResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteResearcher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="researcherId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteResearcherResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

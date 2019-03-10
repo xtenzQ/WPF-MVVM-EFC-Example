@@ -1,0 +1,69 @@
+﻿<Window x:Class="ResearchersWPF.UI.View.MonographView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResearchersWPF.UI.View"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Добавить монографию" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Grid>
+        <Grid.CommandBindings>
+            <CommandBinding Command="New" Executed="AddCustomer_Executed" CanExecute="AddCustomer_CanExecute" />
+        </Grid.CommandBindings>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Монография" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"><Run Text="Название"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Фамилия соавтора"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"><Run Text="Имя соавтора"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"><Run Text="Отчество соавтора"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="Год издания"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"><Run Text="Число страниц"/></TextBlock>
+
+                <TextBox x:Name="FirstFocus" Style="{StaticResource placeHolder}" Tag="Введите название" Margin="5" MaxLength="250" Grid.Row="0" Grid.Column="1" TabIndex="0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
+                <TextBox Style="{StaticResource placeHolder}" Tag="Введите фамилию" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorLastName,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
+                <TextBox Style="{StaticResource placeHolder}" Tag="Введите имя" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorFirstName,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
+                <TextBox Style="{StaticResource placeHolder}" Tag="Введите отчество" Margin="5" MaxLength="250" Grid.Row="3" Grid.Column="1" TabIndex="2" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorMiddleName,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
+                <xctk:IntegerUpDown x:Name="ReleaseYearNUD" Margin="5" MaxLength="250" Grid.Row="4" Grid.Column="1" TabIndex="3" HorizontalAlignment="Left" MinWidth="70" Validation.Error="Validation_Error" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseDate,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
+                <xctk:IntegerUpDown Margin="5" MaxLength="250" Grid.Row="5" Grid.Column="1" TabIndex="4" HorizontalAlignment="Left" MinWidth="70" Validation.Error="Validation_Error" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=PageCount,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Row="1" Grid.Column="0" Height="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="AddButton" Click="ButtonBase_OnClick" Content="Добавить" Command="New" Grid.Row="0" Grid.Column="0" Margin="5" Padding="5">
+                <!--<TextBlock><Run Text="Добавить"/></TextBlock>-->
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

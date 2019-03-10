@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="07b1e209-3863-4243-9249-2ab351290479" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:61740/Services/ResearcherService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ResearcherService.xsd" MetadataType="Schema" ID="89b0fce9-cd65-4d0c-b11c-97f7a152de4b" SourceId="1" SourceUrl="http://localhost:61740/Services/ResearcherService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ResearcherService.disco" MetadataType="Disco" ID="4f0dd9db-9afe-4fa4-acfa-d70de30638e7" SourceId="1" SourceUrl="http://localhost:61740/Services/ResearcherService.svc?disco" />
+    <MetadataFile FileName="ResearcherService1.xsd" MetadataType="Schema" ID="aea8294b-501a-40d3-984a-6ad8909177de" SourceId="1" SourceUrl="http://localhost:61740/Services/ResearcherService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ResearcherService2.xsd" MetadataType="Schema" ID="e639601a-3f9b-4538-9eda-f24d683f252a" SourceId="1" SourceUrl="http://localhost:61740/Services/ResearcherService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ResearcherService.wsdl" MetadataType="Wsdl" ID="46d1e459-2201-4e6d-b3a0-73243b0bc9b8" SourceId="1" SourceUrl="http://localhost:61740/Services/ResearcherService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

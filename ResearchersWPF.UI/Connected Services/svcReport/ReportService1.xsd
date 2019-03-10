@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:61740/Services/ReportService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" />
+  <xs:element name="GetReportByResearcher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="researcherId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportByResearcherResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="GetReportByResearcherResult" nillable="true" type="q1:ArrayOfReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="researcherId" type="xs:int" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="report" nillable="true" type="q2:Report" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReportResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="report" nillable="true" type="q3:Report" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReportResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reportId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReportResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reportId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ResearchersWPF.Service.DataContracts" minOccurs="0" name="GetReportResult" nillable="true" type="q4:Report" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
