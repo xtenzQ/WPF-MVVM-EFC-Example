@@ -16,7 +16,7 @@ This application is developed with **DotNet Lead** [guide](http://www.dotnetlead
 - JetBrains Reshaper Ultimate [ [download](https://www.jetbrains.com/resharper/) ]
 
 **Frameworks:**
-- Entity Framework Core 6
+- Entity Framework Core 6 (for SQLite)
 - Microsoft Unity
 - Extended WPF Toolkit™ [ [link](https://github.com/xceedsoftware/wpftoolkit) ]
 
