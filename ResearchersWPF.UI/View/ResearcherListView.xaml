@@ -14,9 +14,15 @@
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-    <StackPanel>
-        <Button x:Name="btnAddResearcher" Content="Add Researcher" Width="90" HorizontalAlignment="Right" Margin="10 10 0 10" Command="{Binding ShowAddCommand}"/>
-        <ListView SelectionMode="Single" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName }"/>
@@ -30,5 +36,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-    </StackPanel>
+        <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
+            <ToolBar Height="25" VerticalAlignment="Top" Background="White">
+                <Button x:Name="btnAddResearcher" Content="Добавить" Command="{Binding ShowAddCommand}" />
+            </ToolBar>
+        </ToolBarTray>
+    </Grid>
 </UserControl>

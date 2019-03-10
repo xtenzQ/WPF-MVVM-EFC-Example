@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ResearchersWPF.UI.View"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
         Title="Добавить отчёт" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
@@ -35,13 +36,13 @@
             <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="Число страниц"/></TextBlock>
 
 
-            <TextBox x:Name="FirstFocus" Style="{StaticResource placeHolder}" Tag="Введите название" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Введите название" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-            <xctk:IntegerUpDown Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" HorizontalAlignment="Left" MinWidth="70" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=RegisterNumber,
+                <xctk:IntegerUpDown x:Name="RegisterNumber"  Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" HorizontalAlignment="Left" MinWidth="70" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=RegisterNumber,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
-            <xctk:IntegerUpDown x:Name="ReleaseDateN" Margin="5" MaxLength="250" Grid.Row="3" Grid.Column="1" TabIndex="2" HorizontalAlignment="Left" MinWidth="70" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseYear,
+                <xctk:IntegerUpDown x:Name="ReleaseYear" Margin="5" MaxLength="250" Grid.Row="3" Grid.Column="1" TabIndex="2" HorizontalAlignment="Left" MinWidth="70" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseYear,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
-            <xctk:IntegerUpDown Margin="5" MaxLength="250" Grid.Row="4" Grid.Column="1" TabIndex="3" HorizontalAlignment="Left" MinWidth="70" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=PageCount,
+                <xctk:IntegerUpDown x:Name="PageCount" Margin="5" MaxLength="250" Grid.Row="4" Grid.Column="1" TabIndex="3" HorizontalAlignment="Left" MinWidth="70" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=PageCount,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
         </Grid>
     </GroupBox>
@@ -53,9 +54,37 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Button x:Name="AddButton" Command="New" Content="Добавить" Click="ButtonBase_OnClick"  Grid.Row="0" Grid.Column="0" Margin="5" Padding="5">
-            <!--<TextBlock><Run Text="Добавить"/></TextBlock>-->
+        <Button x:Name="AddButton" Command="{Binding UpdateCommand}" Click="btnUpdate_Click" Grid.Row="0" Grid.Column="0" Margin="5" Padding="5">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Mode}">
+                            <DataTrigger.Value>
+                                <viewModel:Mode>Add</viewModel:Mode>
+                            </DataTrigger.Value>
+                            <Setter Property="Content" Value="Add"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Mode}">
+                            <DataTrigger.Value>
+                                <viewModel:Mode>Edit</viewModel:Mode>
+                            </DataTrigger.Value>
+                            <Setter Property="Content" Value="Save"/>
+                        </DataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=Name, Path=(Validation.HasError)}" Value="false"/>
+                                    <Condition Binding="{Binding ElementName=RegisterNumber, Path=(Validation.HasError)}" Value="false"/>
+                                    <Condition Binding="{Binding ElementName=ReleaseYear, Path=(Validation.HasError)}" Value="false"/>
+                                    <Condition Binding="{Binding ElementName=PageCount, Path=(Validation.HasError)}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
         </Button>
-    </Grid>
+        <Button x:Name="CancelButton" Content="Отменить" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
+        </Grid>
     </Grid>
 </Window>

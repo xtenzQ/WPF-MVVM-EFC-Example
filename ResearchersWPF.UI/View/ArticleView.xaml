@@ -5,13 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ResearchersWPF.UI.View"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
         Title="Добавить статью" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid FocusManager.FocusedElement="{Binding ElementName=FirstFocus}">
-    <Grid.CommandBindings>
-        <CommandBinding Command="New" Executed="AddCustomer_Executed" CanExecute="AddCustomer_CanExecute" />
-    </Grid.CommandBindings>
-    <Grid.RowDefinitions>
+        <Grid.RowDefinitions>
         <RowDefinition Height="auto"></RowDefinition>
         <RowDefinition Height="auto"></RowDefinition>
     </Grid.RowDefinitions>
@@ -35,11 +33,11 @@
             <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">Название статьи</TextBlock>
             <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">Название журнала</TextBlock>
             <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0">Дата издания</TextBlock>
-            <TextBox x:Name="FirstFocus" Style="{StaticResource placeHolder}" Tag="Введите названние статьи" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Введите названние статьи" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
-            <TextBox Style="{StaticResource placeHolder}" Tag="Введите название журнала" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MagazineName,
+                <TextBox x:Name="MagazineName" Style="{StaticResource placeHolder}" Tag="Введите название журнала" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MagazineName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
-            <xctk:DateTimePicker x:Name="DatePicker" TimeFormat="YearMonth" HorizontalAlignment="Left" MinWidth="130" Margin="5" Grid.Row="3" Grid.Column="1" TabIndex="2" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseDate,
+                <xctk:DateTimePicker x:Name="ReleaseDate" TimeFormat="YearMonth" HorizontalAlignment="Left" MinWidth="130" Margin="5" Grid.Row="3" Grid.Column="1" TabIndex="2" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseDate,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
         </Grid>
     </GroupBox>
@@ -51,7 +49,36 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="AddButton" Content="Добавить" Click="ButtonBase_OnClick" Command="New" Grid.Row="0" Grid.Column="0" Margin="5" Padding="5" />
-    </Grid>
+            <Button x:Name="AddButton" Command="{Binding UpdateCommand}" Click="btnUpdate_Click" Grid.Row="0" Grid.Column="0" Margin="5" Padding="5">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Mode}">
+                                <DataTrigger.Value>
+                                    <viewModel:Mode>Add</viewModel:Mode>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Add"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Mode}">
+                                <DataTrigger.Value>
+                                    <viewModel:Mode>Edit</viewModel:Mode>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Save"/>
+                            </DataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=Name, Path=(Validation.HasError)}" Value="false"/>
+                                    <Condition Binding="{Binding ElementName=MagazineName, Path=(Validation.HasError)}" Value="false"/>
+                                    <Condition Binding="{Binding ElementName=ReleaseDate, Path=(Validation.HasError)}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="CancelButton" Content="Отменить" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
+        </Grid>
     </Grid>
 </Window>

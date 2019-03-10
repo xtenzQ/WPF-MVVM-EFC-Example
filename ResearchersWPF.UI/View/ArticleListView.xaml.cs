@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ResearchersWPF.UI.ViewModel;
 
 namespace ResearchersWPF.UI.View
 {
@@ -23,6 +24,28 @@ namespace ResearchersWPF.UI.View
         public ArticleListView()
         {
             InitializeComponent();
+        }
+
+        private void btnAddArticle_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new ArticleView();
+            var articleViewModel = new ArticleViewModel()
+            {
+                Researcher = (ResearcherViewModel)DataContext,
+                Mode = Mode.Add
+            };
+
+            view.DataContext = articleViewModel;
+            view.ShowDialog();
+        }
+
+        private void btnEditArticle_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new ArticleView();
+            var articleViewModel = (ArticleViewModel)((Button)sender).DataContext;
+            articleViewModel.Mode = Mode.Edit;
+            view.DataContext = articleViewModel;
+            view.ShowDialog();
         }
     }
 }

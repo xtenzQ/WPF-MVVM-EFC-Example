@@ -23,5 +23,15 @@ namespace ResearchersWPF.UI.View
         {
             InitializeComponent();
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

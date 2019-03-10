@@ -5,12 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ResearchersWPF.UI.View"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
         Title="Добавить доклад" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid FocusManager.FocusedElement="{Binding ElementName=FirstFocus}">
-        <Grid.CommandBindings>
-            <CommandBinding Command="New" Executed="AddCustomer_Executed" CanExecute="AddCustomer_CanExecute" />
-        </Grid.CommandBindings>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -36,11 +34,11 @@
                 <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">Название конференции</TextBlock>
                 <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0">Дата выступления</TextBlock>
 
-                <TextBox x:Name="FirstFocus" Style="{StaticResource placeHolder}" Tag="Введите названние доклада" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Введите названние доклада" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
-                <TextBox Style="{StaticResource placeHolder}" Tag="Введите название конференции" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=ConferenceName,
+                <TextBox x:Name="ConferenceName"  Style="{StaticResource placeHolder}" Tag="Введите название конференции" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=ConferenceName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
-                <xctk:DateTimePicker x:Name="DatePicker" HorizontalAlignment="Left" MinWidth="130" Margin="5" Grid.Row="3" Grid.Column="1" TabIndex="2" Validation.Error="Validation_Error" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=PresentationDate,
+                <xctk:DateTimePicker x:Name="PresentationDate" HorizontalAlignment="Left" MinWidth="130" Margin="5" Grid.Row="3" Grid.Column="1" TabIndex="2" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=PresentationDate,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
             </Grid>
         </GroupBox>
@@ -52,8 +50,36 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Content="Добавить" Command="New" x:Name="AddButton" Click="ButtonBase_OnClick"  Grid.Row="0" Grid.Column="0" Margin="5" Padding="5">
+            <Button x:Name="AddButton" Command="{Binding UpdateCommand}" Click="btnUpdate_Click" Grid.Row="0" Grid.Column="0" Margin="5" Padding="5" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Mode}">
+                                <DataTrigger.Value>
+                                    <viewModel:Mode>Add</viewModel:Mode>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Add"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Mode}">
+                                <DataTrigger.Value>
+                                    <viewModel:Mode>Edit</viewModel:Mode>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Save"/>
+                            </DataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=Name, Path=(Validation.HasError)}" Value="false"/>
+                                    <Condition Binding="{Binding ElementName=ConferenceName, Path=(Validation.HasError)}" Value="false"/>
+                                    <Condition Binding="{Binding ElementName=PresentationDate, Path=(Validation.HasError)}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
             </Button>
+            <Button x:Name="CancelButton" Content="Отменить" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
         </Grid>
     </Grid>
 </Window>

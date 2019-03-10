@@ -56,18 +56,18 @@ namespace ResearchersWPF.UI.ViewModel
 
         internal ObservableCollection<ResearcherViewModel> GetResearchers()
         {
-            if (ResearcherList == null)
+            if (_researcherList == null)
             {
-                ResearcherList = new ObservableCollection<ResearcherViewModel>();
+                _researcherList = new ObservableCollection<ResearcherViewModel>();
             }
-            ResearcherList.Clear();
+            _researcherList.Clear();
             foreach (var researcher in new svcResearcher.ResearcherServiceClient().GetResearchers())
             {
                 var resVm = new ResearcherViewModel(researcher);
-                ResearcherList.Add(resVm);
+                _researcherList.Add(resVm);
             }
 
-            return ResearcherList;
+            return _researcherList;
         }
 
         private void ShowAddDialog()

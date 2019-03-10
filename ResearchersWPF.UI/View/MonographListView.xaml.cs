@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ResearchersWPF.UI.ViewModel;
 
 namespace ResearchersWPF.UI.View
 {
@@ -23,6 +24,28 @@ namespace ResearchersWPF.UI.View
         public MonographListView()
         {
             InitializeComponent();
+        }
+
+        private void btnAddMonograph_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new MonographView();
+            var monographViewModel = new MonographViewModel()
+            {
+                Researcher = (ResearcherViewModel)DataContext,
+                Mode = Mode.Add
+            };
+
+            view.DataContext = monographViewModel;
+            view.ShowDialog();
+        }
+
+        private void btnEditMonograph_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new MonographView();
+            var monographViewModel = (MonographViewModel)((Button)sender).DataContext;
+            monographViewModel.Mode = Mode.Edit;
+            view.DataContext = monographViewModel;
+            view.ShowDialog();
         }
     }
 }

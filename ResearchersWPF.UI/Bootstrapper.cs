@@ -1,5 +1,6 @@
 ﻿using ResearchersWPF.UI.Interface;
 using ResearchersWPF.UI.Service;
+using ResearchersWPF.UI.View;
 using ResearchersWPF.UI.ViewModel;
 
 namespace ResearchersWPF.UI
@@ -14,7 +15,7 @@ namespace ResearchersWPF.UI
 
             //register the IModalDialog using an instance of the CustomerViewDialog
             //this sets up the view
-            ServiceProvider.Instance.Register<IModalDialog, ResearcherViewModel>();
+            ServiceProvider.Instance.Register<IModalDialog, ResearcherViewDialog>();
         }
     }
 }

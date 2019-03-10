@@ -6,7 +6,46 @@
              xmlns:local="clr-namespace:ResearchersWPF.UI.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="RowButtons">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnEditArticle" Content="Edit" Click="btnEditArticle_Click" />
+                <Button x:Name="btnDeleteArticle" Content="Delete" Command="{Binding DeleteCommand}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название статьи" DisplayMemberBinding="{Binding Name }"/>
+                    <GridViewColumn Header="Название журнала" DisplayMemberBinding="{Binding MagazineName }"/>
+                    <GridViewColumn Header="Дата издания" DisplayMemberBinding="{Binding ReleaseDate}"/>
+                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
+            <ToolBar Height="25" VerticalAlignment="Top" Background="White">
+                <Button x:Name="btnAddArticle" Content="Добавить" Click="btnAddArticle_Click" >
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding}" Value="{x:Null}">
+                                    <Setter Property="IsEnabled" Value="false"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
     </Grid>
 </UserControl>
