@@ -22,16 +22,6 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Название статьи" DisplayMemberBinding="{Binding Name }"/>
-                    <GridViewColumn Header="Название журнала" DisplayMemberBinding="{Binding MagazineName }"/>
-                    <GridViewColumn Header="Дата издания" DisplayMemberBinding="{Binding ReleaseDate}"/>
-                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
             <ToolBar Height="25" VerticalAlignment="Top" Background="White">
                 <Button x:Name="btnAddArticle" Content="Добавить" Click="btnAddArticle_Click" >
@@ -47,5 +37,16 @@
                 </Button>
             </ToolBar>
         </ToolBarTray>
+        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название статьи" DisplayMemberBinding="{Binding Name }"/>
+                    <GridViewColumn Header="Название журнала" DisplayMemberBinding="{Binding MagazineName }"/>
+                    <GridViewColumn Header="Дата издания" DisplayMemberBinding="{Binding ReleaseDate}"/>
+                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
     </Grid>
 </UserControl>

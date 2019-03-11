@@ -22,7 +22,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
+        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName }"/>

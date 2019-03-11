@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ResearchersWPF.UI"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-             StartupUri="MainWindow.xaml">
+             >
     <Application.Resources>
         <Style TargetType="DataGridCell">
             <Style.Triggers>

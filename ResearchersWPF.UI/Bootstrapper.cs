@@ -5,7 +5,7 @@ using ResearchersWPF.UI.ViewModel;
 
 namespace ResearchersWPF.UI
 {
-    public class Bootstrapper
+    public class BootStrapper
     {
         public static void Initialize()
         {

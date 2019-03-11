@@ -35,7 +35,7 @@
         </ListView>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
             <ToolBar Height="25" VerticalAlignment="Top" Background="White">
-                <Button x:Name="btnAddReport" Content="Добавить" Click="btnAddReport_Click" >
+                <Button x:Name="btnAddReport" Content="Добавить" Click="btnAddReport_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>

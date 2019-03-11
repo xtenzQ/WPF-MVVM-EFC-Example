@@ -6,28 +6,28 @@ namespace ResearchersWPF.Service.DataContracts
     public class Researcher
     {
         [DataMember]
-        public int ResearcherId { get; private set; }
+        public int ResearcherId { get; set; }
 
         [DataMember]
-        public string LastName { get; private set; }
+        public string LastName { get; set; }
 
         [DataMember]
-        public string FirstName { get; private set; }
+        public string FirstName { get; set; }
 
         [DataMember]
-        public string MiddleName { get; private set; }
+        public string MiddleName { get; set; }
 
         [DataMember]
-        public int DepartmentNumber { get; private set; }
+        public int DepartmentNumber { get; set; }
 
         [DataMember]
-        public int Age { get; }
+        public int Age { get; set; }
 
         [DataMember]
-        public string AcademicDegree { get; }
+        public string AcademicDegree { get; set; }
 
         [DataMember]
-        public string Position { get; }
+        public string Position { get; set; }
 
         internal Researcher(Business.Logic.Researcher researcher)
         {
