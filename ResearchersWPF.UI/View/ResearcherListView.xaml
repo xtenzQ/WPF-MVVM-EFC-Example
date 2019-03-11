@@ -22,20 +22,18 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName }"/>
-                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding MiddleName }"/>
-                    <GridViewColumn Header="№ отдела" DisplayMemberBinding="{Binding DepartmentNumber }"/>
-                    <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding Age}"/>
-                    <GridViewColumn Header="Ученая степень" DisplayMemberBinding="{Binding AcademicDegree}"/>
-                    <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Position}"/>
-                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid Background="White" Grid.Column="0" Grid.Row="0" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Height="auto" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding Path=LastName }"/>
+                <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding Path=FirstName}"/>
+                <DataGridTextColumn Width="*" Header="Отчество" Binding="{Binding Path=MiddleName }"/>
+                <DataGridTextColumn Width="*" Header="№ отдела" Binding="{Binding Path=DepartmentNumber }"/>
+                <DataGridTextColumn Width="*" Header="Возраст" Binding="{Binding Path=Age}"/>
+                <DataGridTextColumn Width="*" Header="Ученая степень" Binding="{Binding Path=AcademicDegree}"/>
+                <DataGridTextColumn Width="*" Header="Должность" Binding="{Binding Path=Position}"/>
+                <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
             <ToolBar Height="25" VerticalAlignment="Top" Background="White">
                 <Button x:Name="btnAddResearcher" Content="Добавить" Command="{Binding ShowAddCommand}" />

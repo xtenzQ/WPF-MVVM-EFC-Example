@@ -41,7 +41,6 @@ namespace ResearchersWPF.UI.ViewModel
         public ICommand ShowAddCommand
         {
             get { return _showAddCommand ?? (_showAddCommand = new CommandBase(i => ShowAddDialog(), null)); }
-            
         }
 
         private ResearchersListViewModel()

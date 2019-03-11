@@ -40,7 +40,7 @@
 
             </MenuItem>
         </Menu>
-        <TabControl x:Name="ResearcherAchivementsTab" Grid.Row="2" Grid.Column="1" DataContext="{Binding SelectedResearcher}">
+        <TabControl x:Name="ResearcherAchivementsTab" Grid.Row="2" Grid.Column="1">
             <TabItem x:Name="ReportsTab">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">

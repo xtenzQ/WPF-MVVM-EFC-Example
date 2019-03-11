@@ -207,7 +207,7 @@ namespace ResearchersWPF.UI.ViewModel
             var articleServiceClient = new svcArticle.ArticleServiceClient();
             foreach (var article in articleServiceClient.GetArticleByResearcher(Id))
             {
-                var articleVm = new ArticleViewModel(article) {Researcher = this};
+                var articleVm = new ArticleViewModel(article) { Researcher = this };
                 _articles.Add(articleVm);
             }
 
@@ -220,7 +220,7 @@ namespace ResearchersWPF.UI.ViewModel
             var monographServiceClient = new svcMonograph.MonographServiceClient();
             foreach (var monograph in monographServiceClient.GetMonographByResearcher(Id))
             {
-                var monographVm = new MonographViewModel(monograph) {Researcher = this};
+                var monographVm = new MonographViewModel(monograph) { Researcher = this };
                 _monographs.Add(monographVm);
             }
 
@@ -233,7 +233,7 @@ namespace ResearchersWPF.UI.ViewModel
             var presentationServiceClient = new svcPresentation.PresentationServiceClient();
             foreach (var presentation in presentationServiceClient.GetPresentationByResearcher(Id))
             {
-                var presentationVm = new PresentationViewModel(presentation) {Researcher = this};
+                var presentationVm = new PresentationViewModel(presentation) { Researcher = this };
                 _presentations.Add(presentationVm);
             }
 
@@ -246,7 +246,7 @@ namespace ResearchersWPF.UI.ViewModel
             var reportServiceClient = new svcReport.ReportServiceClient();
             foreach (var report in reportServiceClient.GetReportByResearcher(Id))
             {
-                var reportVm = new ReportViewModel(report) {Researcher = this};
+                var reportVm = new ReportViewModel(report) { Researcher = this };
                 _reports.Add(reportVm);
             }
 

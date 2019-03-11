@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ResearchersWPF.UI.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -22,17 +21,15 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvReportList" ItemsSource="{Binding Reports}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name }"/>
-                    <GridViewColumn Header="Регистрационный номер" DisplayMemberBinding="{Binding RegisterNumber }"/>
-                    <GridViewColumn Header="Год выпуска" DisplayMemberBinding="{Binding ReleaseYear }"/>
-                    <GridViewColumn Header="Число страниц" DisplayMemberBinding="{Binding PageCount}"/>
-                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvReportList" ItemsSource="{Binding Reports}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Path=Name }"/>
+                <DataGridTextColumn Width="*" Header="Регистрационный номер" Binding="{Binding Path=RegisterNumber }"/>
+                <DataGridTextColumn Width="*" Header="Год выпуска" Binding="{Binding Path=ReleaseYear }"/>
+                <DataGridTextColumn Width="*" Header="Число страниц" Binding="{Binding Path=PageCount}"/>
+                <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
             <ToolBar Height="25" VerticalAlignment="Top" Background="White">
                 <Button x:Name="btnAddReport" Content="Добавить" Click="btnAddReport_Click">

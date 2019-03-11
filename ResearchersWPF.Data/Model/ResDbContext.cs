@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using SQLitePCL;
 
 namespace ResearchersWPF.Data.Model
 {
@@ -13,7 +14,7 @@ namespace ResearchersWPF.Data.Model
 
         public ResDbContext()
         {
-            SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3());
+            Batteries.Init();
             Database.EnsureCreated();
         }
 
@@ -21,25 +22,25 @@ namespace ResearchersWPF.Data.Model
         {
             // configures one-to-many relationship
             modelBuilder.Entity<Researcher>()
-                .HasMany<Article>(g => g.Articles)
+                .HasMany(g => g.Articles)
                 .WithOne(s => s.Researcher)
                 .HasForeignKey(e => e.ResearcherId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Researcher>()
-                .HasMany<Monograph>(g => g.Monographs)
+                .HasMany(g => g.Monographs)
                 .WithOne(s => s.Researcher)
                 .HasForeignKey(e => e.ResearcherId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Researcher>()
-                .HasMany<Presentation>(g => g.Presentations)
+                .HasMany(g => g.Presentations)
                 .WithOne(s => s.Researcher)
                 .HasForeignKey(e => e.ResearcherId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Researcher>()
-                .HasMany<Report>(g => g.Reports)
+                .HasMany(g => g.Reports)
                 .WithOne(s => s.Researcher)
                 .HasForeignKey(e => e.ResearcherId)
                 .OnDelete(DeleteBehavior.Cascade);

@@ -37,16 +37,14 @@
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Название статьи" DisplayMemberBinding="{Binding Name }"/>
-                    <GridViewColumn Header="Название журнала" DisplayMemberBinding="{Binding MagazineName }"/>
-                    <GridViewColumn Header="Дата издания" DisplayMemberBinding="{Binding ReleaseDate}"/>
-                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Название статьи" Binding="{Binding Path=Name }"/>
+                <DataGridTextColumn Width="*" Header="Название журнала" Binding="{Binding Path=MagazineName }"/>
+                <DataGridTextColumn Width="*" Header="Дата издания" Binding="{Binding Path=ReleaseDate}"/>
+                <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         
     </Grid>
 </UserControl>

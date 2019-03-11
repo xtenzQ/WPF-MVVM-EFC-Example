@@ -2,7 +2,7 @@
 
 namespace ResearchersWPF.Data.Model
 {
-    public class Researcher
+    public sealed class Researcher
     {
         public int Id { get; set; }
 
@@ -23,9 +23,17 @@ namespace ResearchersWPF.Data.Model
         // Должность
         public string Position { get; set; }
 
-        public virtual ICollection<Article> Articles { get; set; }
-        public virtual ICollection<Monograph> Monographs { get; set; }
-        public virtual ICollection<Presentation> Presentations { get; set; }
-        public virtual ICollection<Report> Reports { get; set; }
+        public ICollection<Article> Articles { get; set; }
+        public ICollection<Monograph> Monographs { get; set; }
+        public ICollection<Presentation> Presentations { get; set; }
+        public ICollection<Report> Reports { get; set; }
+
+        public Researcher()
+        {
+            Articles = new HashSet<Article>();
+            Monographs = new HashSet<Monograph>();
+            Presentations = new HashSet<Presentation>();
+            Reports = new HashSet<Report>();
+        }
     }
 }

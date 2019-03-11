@@ -22,16 +22,14 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" x:Name="lsvPresentationList" ItemsSource="{Binding Presentations}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name }"/>
-                    <GridViewColumn Header="Название конференции" DisplayMemberBinding="{Binding ConferenceName }"/>
-                    <GridViewColumn Header="Дата выступления" DisplayMemberBinding="{Binding PresentationDate}"/>
-                    <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvPresentationList" ItemsSource="{Binding Presentations}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Path=Name }"/>
+                <DataGridTextColumn Width="*" Header="Название конференции" Binding="{Binding Path=ConferenceName }"/>
+                <DataGridTextColumn Width="*" Header="Дата выступления" Binding="{Binding Path=PresentationDate}"/>
+                <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
             <ToolBar Height="25" VerticalAlignment="Top" Background="White">
                 <Button x:Name="btnAddPresentation" Content="Добавить" Click="btnAddPresentation_Click" >
