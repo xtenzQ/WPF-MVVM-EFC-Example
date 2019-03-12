@@ -4,6 +4,7 @@
 
 1. [Before we start](#before-we-start)
 2. [IDEs and plugins used](#ides-and-frameworks-used)
+3. [Architecture](#architecture)
 
 ## Before we start
 
