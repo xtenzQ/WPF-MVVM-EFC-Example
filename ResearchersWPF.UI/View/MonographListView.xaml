@@ -22,7 +22,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvMonographList" ItemsSource="{Binding Monographs}">
+        <DataGrid GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvMonographList" ItemsSource="{Binding Monographs}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Width="*" Header="Фамилия соавтора" Binding="{Binding Path=CoauthorLastName }"/>

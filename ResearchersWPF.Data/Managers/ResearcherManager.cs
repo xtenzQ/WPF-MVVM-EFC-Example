@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ResearchersWPF.Data.IManagers;
 using ResearchersWPF.Data.Model;
 
@@ -67,7 +68,7 @@ namespace ResearchersWPF.Data.Managers
         {
             using (var context = new ResDbContext())
             {
-                return context.Articles.First(i => i.Id == articleId).Researcher;
+                return context.Articles.Include(i => i.Researcher).FirstOrDefault(i => i.Id == articleId)?.Researcher;
             }
         }
 
@@ -75,7 +76,7 @@ namespace ResearchersWPF.Data.Managers
         {
             using (var context = new ResDbContext())
             {
-                return context.Monographs.First(i => i.Id == monographId).Researcher;
+                return context.Monographs.Include(i => i.Researcher).FirstOrDefault(i => i.Id == monographId)?.Researcher;
             }
         }
 
@@ -83,7 +84,7 @@ namespace ResearchersWPF.Data.Managers
         {
             using (var context = new ResDbContext())
             {
-                return context.Presentations.First(i => i.Id == presentationId).Researcher;
+                return context.Presentations.Include(i => i.Researcher).FirstOrDefault(i => i.Id == presentationId)?.Researcher;
             }
         }
 
@@ -91,7 +92,7 @@ namespace ResearchersWPF.Data.Managers
         {
             using (var context = new ResDbContext())
             {
-                return context.Reports.First(i => i.Id == reportId).Researcher;
+                return context.Reports.Include(i => i.Researcher).FirstOrDefault(i => i.Id == reportId)?.Researcher;
             }
         }
     }

@@ -22,7 +22,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Background="White" Grid.Column="0" Grid.Row="0" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Height="auto" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
+        <DataGrid GridLinesVisibility="None" Background="White" Grid.Column="0" Grid.Row="0" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Height="auto" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding Path=LastName }"/>
                 <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding Path=FirstName}"/>

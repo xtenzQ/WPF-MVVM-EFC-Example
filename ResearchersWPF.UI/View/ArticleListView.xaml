@@ -37,7 +37,7 @@
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        <DataGrid Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
+        <DataGrid GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Название статьи" Binding="{Binding Path=Name }"/>
                 <DataGridTextColumn Width="*" Header="Название журнала" Binding="{Binding Path=MagazineName }"/>

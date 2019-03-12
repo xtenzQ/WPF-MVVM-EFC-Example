@@ -54,7 +54,6 @@ namespace ResearchersWPF.Data.Managers
             using (var context = new ResDbContext())
             {
                 context.ChangeTracker.AutoDetectChangesEnabled = false;
-
                 return context.Reports.Where(s => s.ResearcherId == researcherId).ToList();
                 //return context.Researchers.First(i => i.Id == researcherId).Reports.ToList();
             }
@@ -64,6 +63,7 @@ namespace ResearchersWPF.Data.Managers
         {
             using (var context = new ResDbContext())
             {
+                //return context.Reports.FirstOrDefault(i => i.Id == reportId);
                 return context.Reports.First(i => i.Id == reportId);
             }
         }

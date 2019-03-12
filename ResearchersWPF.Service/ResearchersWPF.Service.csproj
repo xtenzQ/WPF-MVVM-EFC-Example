@@ -112,10 +112,6 @@
       <Project>{d7b00cc2-0c31-47ec-9250-6c42580d0b98}</Project>
       <Name>ResearchersWPF.Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ResearchersWPF.Data\ResearchersWPF.Data.csproj">
-      <Project>{3b27ae7e-a295-401c-801f-19822eb9ea1f}</Project>
-      <Name>ResearchersWPF.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
