@@ -113,6 +113,7 @@ namespace ResearchersWPF.UI.ViewModel
         internal MonographViewModel(svcMonograph.Monograph monograph)
         {
             Id = monograph.Id;
+            Name = monograph.Name;
             CoauthorLastName = monograph.CoauthorLastName;
             CoauthorFirstName = monograph.CoauthorFirstName;
             CoauthorMiddleName = monograph.CoauthorMiddleName;
@@ -130,6 +131,7 @@ namespace ResearchersWPF.UI.ViewModel
             {
                 monographServiceClient.AddMonograph(Researcher.Id, new svcMonograph.Monograph
                 {
+                    Name = Name,
                     CoauthorLastName = CoauthorLastName,
                     CoauthorFirstName = CoauthorFirstName,
                     CoauthorMiddleName = CoauthorMiddleName,
@@ -142,6 +144,7 @@ namespace ResearchersWPF.UI.ViewModel
             {
                 monographServiceClient.UpdateMonograph(new svcMonograph.Monograph
                 {
+                    Name = Name,
                     Id = Id,
                     CoauthorLastName = CoauthorLastName,
                     CoauthorFirstName = CoauthorFirstName,
@@ -163,6 +166,7 @@ namespace ResearchersWPF.UI.ViewModel
         private void Undo()
         {
             if (Mode != Mode.Edit) return;
+            Name = _originalValue.Name;
             CoauthorLastName = _originalValue.CoauthorLastName;
             CoauthorFirstName = _originalValue.CoauthorFirstName;
             CoauthorMiddleName = _originalValue.CoauthorMiddleName;

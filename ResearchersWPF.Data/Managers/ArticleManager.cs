@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ResearchersWPF.Data.IManagers;
 using ResearchersWPF.Data.Model;
 
@@ -45,7 +46,8 @@ namespace ResearchersWPF.Data.Managers
         {
             using (var context = new ResDbContext())
             {
-                return context.Researchers.First(i => i.Id == researcherId).Articles.ToList();
+                return context.Articles.Where(s => s.ResearcherId == researcherId).ToList();
+                //return context.Researchers.First(i => i.Id == researcherId).Articles.ToList();
             }
         }
 

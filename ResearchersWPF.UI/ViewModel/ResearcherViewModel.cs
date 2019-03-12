@@ -203,7 +203,11 @@ namespace ResearchersWPF.UI.ViewModel
 
         internal ObservableCollection<ArticleViewModel> GetArticles()
         {
-            _articles = new ObservableCollection<ArticleViewModel>();
+            if (_articles == null)
+            {
+                _articles = new ObservableCollection<ArticleViewModel>();
+            }
+            _articles.Clear();
             var articleServiceClient = new svcArticle.ArticleServiceClient();
             foreach (var article in articleServiceClient.GetArticleByResearcher(Id))
             {
@@ -216,7 +220,11 @@ namespace ResearchersWPF.UI.ViewModel
 
         internal ObservableCollection<MonographViewModel> GetMonographs()
         {
-            _monographs = new ObservableCollection<MonographViewModel>();
+            if (_monographs == null)
+            {
+                _monographs = new ObservableCollection<MonographViewModel>();
+            }
+            _monographs.Clear();
             var monographServiceClient = new svcMonograph.MonographServiceClient();
             foreach (var monograph in monographServiceClient.GetMonographByResearcher(Id))
             {
@@ -229,7 +237,11 @@ namespace ResearchersWPF.UI.ViewModel
 
         internal ObservableCollection<PresentationViewModel> GetPresentations()
         {
-            _presentations = new ObservableCollection<PresentationViewModel>();
+            if (_presentations == null)
+            {
+                _presentations = new ObservableCollection<PresentationViewModel>();
+            }
+            _presentations.Clear();
             var presentationServiceClient = new svcPresentation.PresentationServiceClient();
             foreach (var presentation in presentationServiceClient.GetPresentationByResearcher(Id))
             {
@@ -242,7 +254,11 @@ namespace ResearchersWPF.UI.ViewModel
 
         internal ObservableCollection<ReportViewModel> GetReports()
         {
-            _reports = new ObservableCollection<ReportViewModel>();
+            if (_reports == null)
+            {
+                _reports = new ObservableCollection<ReportViewModel>();
+            }
+            _reports.Clear();
             var reportServiceClient = new svcReport.ReportServiceClient();
             foreach (var report in reportServiceClient.GetReportByResearcher(Id))
             {
