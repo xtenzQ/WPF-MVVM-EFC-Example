@@ -24,7 +24,7 @@ Frameworks are available via NuGET Package Manager.
 
 ## Architecture
 
-![Multitier architecture](https://i.imgur.com/SPP1IwL.png)
+![Multitier architecture](https://i.imgur.com/ONsYWpp.png)
 
 Application is based on multitier architecture:
 - UI Layer
