@@ -1,4 +1,4 @@
-## 📲 MVVM + Entity Framework Core + Dependency Injection Example App
+# 📲 Multitier WPF Architecture Application
 
 ## Contents
 
