@@ -38,7 +38,7 @@ Application is based on multitier architecture:
 
 ## DB model
 
-![DB model](https://i.imgur.com/xoUWp71.png)
+![DB model](https://i.imgur.com/EgYnDAK.png)
 
 I used **Entity Framework Core** and **Code First** approach to create model as shown above. Here's my `DbContext` with `OnConfiguring()` method:
 ```CSharp
