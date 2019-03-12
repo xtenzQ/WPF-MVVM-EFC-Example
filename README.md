@@ -21,3 +21,13 @@ This application is developed with **DotNet Lead** [guide](http://www.dotnetlead
 - Extended WPF Toolkit™ [ [link](https://github.com/xceedsoftware/wpftoolkit) ]
 
 Frameworks are available via NuGET Package Manager.
+
+## Architecture
+
+![Multitier architecture](https://i.imgur.com/SPP1IwL.png)
+
+Application is based on multitier architecture:
+- UI Layer
+- Service Layer
+- Business Layer
+- Data Access Layer
