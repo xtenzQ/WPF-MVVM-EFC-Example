@@ -9,10 +9,22 @@
     <UserControl.Resources>
         <DataTemplate x:Key="RowButtons">
             <StackPanel Orientation="Horizontal">
-                <Button Content="Edit" Command="{Binding ShowEditCommand}"/>
-                <Button x:Name="btnDeleteResearcher" Content="Delete" Command="{Binding DeleteCommand}"/>
+                <Button Background="Transparent" Content="Edit" Command="{Binding ShowEditCommand}"/>
+                <Button Background="Transparent" x:Name="btnDeleteResearcher" Content="Delete" Command="{Binding DeleteCommand}"/>
             </StackPanel>
         </DataTemplate>
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#79d3f1"/>
+                    <Setter Property="Foreground" Value="#000"/>
+                    <Setter Property="BorderBrush" Value="#79d3f1"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,21 +34,29 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid GridLinesVisibility="None" Background="White" Grid.Column="0" Grid.Row="0" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Height="auto" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
+        <DataGrid SelectionUnit="FullRow" GridLinesVisibility="None" Background="White" Grid.Column="0" Grid.Row="0" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Height="auto" x:Name="lsvResearcherList" ItemsSource="{Binding ResearcherList}" SelectedItem="{Binding SelectedResearcher}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding Path=LastName }"/>
-                <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding Path=FirstName}"/>
-                <DataGridTextColumn Width="*" Header="Отчество" Binding="{Binding Path=MiddleName }"/>
-                <DataGridTextColumn Width="*" Header="№ отдела" Binding="{Binding Path=DepartmentNumber }"/>
-                <DataGridTextColumn Width="*" Header="Возраст" Binding="{Binding Path=Age}"/>
-                <DataGridTextColumn Width="*" Header="Ученая степень" Binding="{Binding Path=AcademicDegree}"/>
-                <DataGridTextColumn Width="*" Header="Должность" Binding="{Binding Path=Position}"/>
+                <DataGridTextColumn Width="*" Header="Last name" Binding="{Binding Path=LastName }"/>
+                <DataGridTextColumn Width="*" Header="First name" Binding="{Binding Path=FirstName}"/>
+                <DataGridTextColumn Width="*" Header="Middle name" Binding="{Binding Path=MiddleName }"/>
+                <DataGridTextColumn Width="*" Header="№ department" Binding="{Binding Path=DepartmentNumber }"/>
+                <DataGridTextColumn Width="*" Header="Age" Binding="{Binding Path=Age}"/>
+                <DataGridTextColumn Width="*" Header="Academic Degree" Binding="{Binding Path=AcademicDegree}"/>
+                <DataGridTextColumn Width="*" Header="Position" Binding="{Binding Path=Position}"/>
                 <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
             </DataGrid.Columns>
         </DataGrid>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
-            <ToolBar Height="25" VerticalAlignment="Top" Background="White">
-                <Button x:Name="btnAddResearcher" Content="Добавить" Command="{Binding ShowAddCommand}" />
+            <ToolBar Height="33" VerticalAlignment="Top" Background="White">
+                <Button x:Name="btnAddResearcher" Command="{Binding ShowAddCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Padding="5 0 0 0" Margin="2">Add Researcher</TextBlock>
+                    </StackPanel>
+                    
+                </Button>
             </ToolBar>
         </ToolBarTray>
     </Grid>

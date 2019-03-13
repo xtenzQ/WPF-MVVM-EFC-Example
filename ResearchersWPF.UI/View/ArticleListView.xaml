@@ -23,8 +23,8 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
-            <ToolBar Height="25" VerticalAlignment="Top" Background="White">
-                <Button x:Name="btnAddArticle" Content="Добавить" Click="btnAddArticle_Click" >
+            <ToolBar Height="30" VerticalAlignment="Center" Background="White">
+                <Button x:Name="btnAddArticle" Click="btnAddArticle_Click" >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>
@@ -34,14 +34,20 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M19,11H15V15H13V11H9V9H13V5H15V9H19M20,2H8A2,2 0 0,0 6,4V16A2,2 0 0,0 8,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M4,6H2V20A2,2 0 0,0 4,22H18V20H4V6Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Padding="5 0 0 0" Margin="0 2 0 0">Add Article</TextBlock>
+                    </StackPanel>
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        <DataGrid GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
+        <DataGrid SelectionUnit="FullRow" GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvArticleList" ItemsSource="{Binding Articles}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Название статьи" Binding="{Binding Path=Name }"/>
-                <DataGridTextColumn Width="*" Header="Название журнала" Binding="{Binding Path=MagazineName }"/>
-                <DataGridTextColumn Width="*" Header="Дата издания" Binding="{Binding Path=ReleaseDate}"/>
+                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Path=Name }"/>
+                <DataGridTextColumn Width="*" Header="Magazine name" Binding="{Binding Path=MagazineName }"/>
+                <DataGridTextColumn Width="*" Header="Release date" Binding="{Binding Path=ReleaseDate}"/>
                 <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
             </DataGrid.Columns>
         </DataGrid>

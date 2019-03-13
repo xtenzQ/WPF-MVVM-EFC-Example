@@ -8,9 +8,9 @@
         <Style TargetType="DataGridCell">
             <Style.Triggers>
                 <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#FFA500"/>
+                    <Setter Property="Background" Value="#77ddbc"/>
                     <Setter Property="Foreground" Value="#000"/>
-                    <Setter Property="BorderBrush" Value="#FFA500"/>
+                    <Setter Property="BorderBrush" Value="#77ddbc"/>
                 </Trigger>
                 <Trigger Property="IsKeyboardFocusWithin" Value="True">
                     <Setter Property="BorderBrush" Value="Red" />

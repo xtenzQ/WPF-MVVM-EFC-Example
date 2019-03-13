@@ -22,20 +22,20 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvMonographList" ItemsSource="{Binding Monographs}">
+        <DataGrid SelectionUnit="FullRow" GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvMonographList" ItemsSource="{Binding Monographs}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Width="*" Header="Фамилия соавтора" Binding="{Binding Path=CoauthorLastName }"/>
-                <DataGridTextColumn Width="*" Header="Имя соавтора" Binding="{Binding Path=CoauthorFirstName }"/>
-                <DataGridTextColumn Width="*" Header="Отчество соавтора" Binding="{Binding Path=CoauthorMiddleName }"/>
-                <DataGridTextColumn Width="*" Header="Год издания" Binding="{Binding Path=ReleaseDate}"/>
-                <DataGridTextColumn Width="*" Header="Число страниц" Binding="{Binding Path=PageCount}"/>
+                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Width="*" Header="Coauthor last name" Binding="{Binding Path=CoauthorLastName }"/>
+                <DataGridTextColumn Width="*" Header="Coauthor first name" Binding="{Binding Path=CoauthorFirstName }"/>
+                <DataGridTextColumn Width="*" Header="Coauthor middle name" Binding="{Binding Path=CoauthorMiddleName }"/>
+                <DataGridTextColumn Width="*" Header="Release year" Binding="{Binding Path=ReleaseDate}"/>
+                <DataGridTextColumn Width="*" Header="Page count" Binding="{Binding Path=PageCount}"/>
                 <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
             </DataGrid.Columns>
         </DataGrid>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
-            <ToolBar Height="25" VerticalAlignment="Top" Background="White">
-                <Button x:Name="btnAddMonograph" Content="Добавить" Click="btnAddMonograph_Click" >
+            <ToolBar Height="30" VerticalAlignment="Center" Background="White">
+                <Button x:Name="btnAddMonograph" Click="btnAddMonograph_Click" >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>
@@ -45,6 +45,12 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M20.7,7C21.1,6.6 21.1,6 20.7,5.6L18.4,3.3C18,2.9 17.4,2.9 17,3.3L15.2,5.1L19,8.9M3,17.2V21H6.8L17.8,9.9L14.1,6.1L3,17.2M7,2V5H10V7H7V10H5V7H2V5H5V2H7Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Padding="5 0 0 0" Margin="0 2 0 0">Add Monograph</TextBlock>
+                    </StackPanel>
                 </Button>
             </ToolBar>
         </ToolBarTray>

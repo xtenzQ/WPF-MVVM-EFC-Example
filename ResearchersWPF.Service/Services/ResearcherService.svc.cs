@@ -32,7 +32,7 @@ namespace ResearchersWPF.Service.Services
             Business.Logic.ResearcherManager.Instance().UpdateResearcher(new Business.Logic.Researcher(c.ResearcherId, c.LastName, c.LastName, c.LastName,
                 c.DepartmentNumber, c.Age, c.AcademicDegree, c.Position));
         }
-
+        
         public void DeleteResearcher(int researcherId)
         {
             Business.Logic.ResearcherManager.Instance().DeleteResearcher(researcherId);

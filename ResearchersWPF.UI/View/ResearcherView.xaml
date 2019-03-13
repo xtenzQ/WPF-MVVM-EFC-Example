@@ -13,7 +13,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Научный сотрудник" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
+        <GroupBox Header="Researcher" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -30,13 +30,13 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Фамилия"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"><Run Text="Имя"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"><Run Text="Отчество"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="№ Отдела"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"><Run Text="Возраст"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"><Run Text="Ученая степень"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"><Run Text="Должность"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Last name"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"><Run Text="First name"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"><Run Text="Middle name"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="Department number"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"><Run Text="Age"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"><Run Text="Academic degree"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"><Run Text="Position"/></TextBlock>
 
                 <TextBox x:Name="LastName" Style="{StaticResource placeHolder}" Tag="Введите фамилию" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=LastName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>

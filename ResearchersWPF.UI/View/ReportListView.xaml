@@ -21,18 +21,18 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvReportList" ItemsSource="{Binding Reports}">
+        <DataGrid SelectionUnit="FullRow" GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvReportList" ItemsSource="{Binding Reports}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Path=Name }"/>
-                <DataGridTextColumn Width="*" Header="Регистрационный номер" Binding="{Binding Path=RegisterNumber }"/>
-                <DataGridTextColumn Width="*" Header="Год выпуска" Binding="{Binding Path=ReleaseYear }"/>
-                <DataGridTextColumn Width="*" Header="Число страниц" Binding="{Binding Path=PageCount}"/>
+                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Path=Name }"/>
+                <DataGridTextColumn Width="*" Header="Register number" Binding="{Binding Path=RegisterNumber }"/>
+                <DataGridTextColumn Width="*" Header="Release year" Binding="{Binding Path=ReleaseYear }"/>
+                <DataGridTextColumn Width="*" Header="Page count" Binding="{Binding Path=PageCount}"/>
                 <DataGridTemplateColumn Width="auto" CellTemplate="{StaticResource RowButtons}"/>
             </DataGrid.Columns>
         </DataGrid>
         <ToolBarTray Grid.Column="0" Grid.Row="1" Background="White">
-            <ToolBar Height="25" VerticalAlignment="Top" Background="White">
-                <Button x:Name="btnAddReport" Content="Добавить" Click="btnAddReport_Click">
+            <ToolBar Height="30" VerticalAlignment="Center" Background="White">
+                <Button x:Name="btnAddReport" Click="btnAddReport_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>
@@ -42,6 +42,12 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M11,15V12H9V15H6V17H9V20H11V17H14V15H11Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Padding="5 0 0 0" Margin="0 2 0 0">Add Report</TextBlock>
+                    </StackPanel>
                 </Button>
             </ToolBar>
         </ToolBarTray>

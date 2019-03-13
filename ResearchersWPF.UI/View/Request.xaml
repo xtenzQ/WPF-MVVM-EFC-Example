@@ -1,0 +1,42 @@
+﻿<Window x:Class="ResearchersWPF.UI.View.Request"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResearchersWPF.UI.View"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Request" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Введите запросы" Width="auto" Grid.Row="0" Padding="5" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"><Run Text="Доклады на конференциях"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Число страниц в отчётах"/></TextBlock>
+
+                <xctk:DateTimePicker x:Name="DateTime1" MinWidth="150" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" />
+                <ComboBox x:Name="Updown" Margin="5" Grid.Row="1" Grid.Column="1" TabIndex="0"/>
+
+                <Button x:Name="Search1" Content="Найти" Grid.Row="0" Grid.Column="2" Margin="5" Padding="5" Click="Search1_Click" />
+                <Button x:Name="Search2"  Content="Найти" Grid.Row="1" Grid.Column="2" Margin="5" Padding="5" Click="Search2_Click" />
+
+                <TextBox x:Name="SearchResult1" IsReadOnly="True" Margin="5" Width="50" MaxLength="250" Grid.Row="0" Grid.Column="3" TabIndex="0" />
+                <TextBox x:Name="SearchResult2" IsReadOnly="True" Margin="5" Width="50" MaxLength="250" Grid.Row="1" Grid.Column="3" TabIndex="0" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

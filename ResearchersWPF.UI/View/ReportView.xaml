@@ -63,13 +63,13 @@
                             <DataTrigger.Value>
                                 <viewModel:Mode>Add</viewModel:Mode>
                             </DataTrigger.Value>
-                            <Setter Property="Content" Value="Add"/>
+                            <Setter Property="Content" Value="Добавить"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Mode}">
                             <DataTrigger.Value>
                                 <viewModel:Mode>Edit</viewModel:Mode>
                             </DataTrigger.Value>
-                            <Setter Property="Content" Value="Save"/>
+                            <Setter Property="Content" Value="Сохранить"/>
                         </DataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>

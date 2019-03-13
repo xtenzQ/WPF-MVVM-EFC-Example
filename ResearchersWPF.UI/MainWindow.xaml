@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ResearchersWPF.UI"
         xmlns:view="clr-namespace:ResearchersWPF.UI.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Researchers Database" Height="500" Width="900">
     <Window.Resources>
         <DataTemplate x:Key="ResearcherListTemplate" >
             <view:ResearcherListView/>
@@ -36,7 +36,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" Background="White">
-            <MenuItem Header="Запросы" >
+            <MenuItem Header="Requests" >
 
             </MenuItem>
         </Menu>
@@ -44,8 +44,10 @@
             <TabItem x:Name="ReportsTab">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Ellipse Height="10" Width="10" Fill="Black" />
-                        <TextBlock Margin="3">Научные отчёты</TextBlock>
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M7,20H9V14H7V20M11,20H13V12H11V20M15,20H17V16H15V20Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Margin="3">Reports</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
@@ -55,8 +57,10 @@
             <TabItem x:Name="ArticleTab">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Rectangle Height="10" Width="10" Fill="Black" />
-                        <TextBlock Margin="3">Статьи</TextBlock>
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M16,15H9V13H16M19,11H9V9H19M19,7H9V5H19M21,1H7C5.89,1 5,1.89 5,3V17C5,18.11 5.9,19 7,19H21C22.11,19 23,18.11 23,17V3C23,1.89 22.1,1 21,1M3,5V21H19V23H3A2,2 0 0,1 1,21V5H3Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Margin="3">Articles</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
@@ -66,8 +70,10 @@
             <TabItem x:Name="PresentationTab">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Rectangle Height="10" Width="10" Fill="Black" />
-                        <TextBlock Margin="3">Доклады</TextBlock>
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Margin="3">Presentations</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
@@ -77,8 +83,10 @@
             <TabItem x:Name="MonographTab">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Rectangle Height="10" Width="10" Fill="Black" />
-                        <TextBlock Margin="3">Монографии</TextBlock>
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M20.71,7.04C20.37,7.38 20.04,7.71 20.03,8.04C20,8.36 20.34,8.69 20.66,9C21.14,9.5 21.61,9.95 21.59,10.44C21.57,10.93 21.06,11.44 20.55,11.94L16.42,16.08L15,14.66L19.25,10.42L18.29,9.46L16.87,10.87L13.12,7.12L16.96,3.29C17.35,2.9 18,2.9 18.37,3.29L20.71,5.63C21.1,6 21.1,6.65 20.71,7.04M3,17.25L12.56,7.68L16.31,11.43L6.75,21H3V17.25Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock Margin="3">Monographs</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>

@@ -63,5 +63,13 @@ namespace ResearchersWPF.Data.Managers
                 return context.Presentations.First(i => i.Id == presentationId);
             }
         }
+
+        public List<Presentation> GetPresentations()
+        {
+            using (var context = new ResDbContext())
+            {
+                return context.Presentations.ToList();
+            }
+        }
     }
 }
