@@ -313,6 +313,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Resource Include="favicon.ico" />
+    <None Include="Resources\AddResearcher.png" />
+    <None Include="Resources\edit.png" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

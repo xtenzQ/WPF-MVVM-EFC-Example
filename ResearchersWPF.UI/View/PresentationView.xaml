@@ -7,13 +7,13 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
-        Title="Добавить доклад" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Presentation" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <GroupBox Header="Статья" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
+        <GroupBox Header="Presentation" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -30,13 +30,13 @@
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">Название доклада</TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">Название конференции</TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0">Дата выступления</TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">Presentation name</TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">Conference name</TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0">Presentation date</TextBlock>
 
-                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Введите названние доклада" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Enter presentation name" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
-                <TextBox x:Name="ConferenceName"  Style="{StaticResource placeHolder}" Tag="Введите название конференции" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=ConferenceName,
+                <TextBox x:Name="ConferenceName"  Style="{StaticResource placeHolder}" Tag="Enter conference name" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=ConferenceName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
                 <xctk:DateTimePicker x:Name="PresentationDate" HorizontalAlignment="Left" MinWidth="130" Margin="5" Grid.Row="3" Grid.Column="1" TabIndex="2" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=PresentationDate,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>

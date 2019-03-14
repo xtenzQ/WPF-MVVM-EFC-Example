@@ -5,12 +5,22 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              >
     <Application.Resources>
-        <Style TargetType="DataGridCell">
+        <Style x:Key="Body_Content_DataGrid_Centering"
+               TargetType="{x:Type DataGridCell}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <Style.Triggers>
                 <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#77ddbc"/>
+                    <Setter Property="Background" Value="#79d3f1"/>
                     <Setter Property="Foreground" Value="#000"/>
-                    <Setter Property="BorderBrush" Value="#77ddbc"/>
+                    <Setter Property="BorderBrush" Value="#79d3f1"/>
                 </Trigger>
                 <Trigger Property="IsKeyboardFocusWithin" Value="True">
                     <Setter Property="BorderBrush" Value="Red" />

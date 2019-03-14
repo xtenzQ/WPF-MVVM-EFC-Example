@@ -7,13 +7,13 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
-        Title="Добавить статью" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Article" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
         <RowDefinition Height="auto"></RowDefinition>
         <RowDefinition Height="auto"></RowDefinition>
     </Grid.RowDefinitions>
-    <GroupBox Header="Статья" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
+        <GroupBox Header="Article" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -30,12 +30,12 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">Название статьи</TextBlock>
-            <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">Название журнала</TextBlock>
-            <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0">Дата издания</TextBlock>
-                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Введите названние статьи" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">Article name</TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">Magazine name</TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0">Release date</TextBlock>
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Enter article name" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
-                <TextBox x:Name="MagazineName" Style="{StaticResource placeHolder}" Tag="Введите название журнала" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MagazineName,
+                <TextBox x:Name="MagazineName" Style="{StaticResource placeHolder}" Tag="Enter magazine name" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MagazineName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
                 <xctk:DateTimePicker x:Name="ReleaseDate" TimeFormat="YearMonth" HorizontalAlignment="Left" MinWidth="130" Margin="5" Grid.Row="3" Grid.Column="1" TabIndex="2" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseDate,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
@@ -78,7 +78,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="CancelButton" Content="Отменить" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
+            <Button x:Name="CancelButton" Content="Cancel" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
         </Grid>
     </Grid>
 </Window>

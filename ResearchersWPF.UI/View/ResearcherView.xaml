@@ -7,7 +7,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
-        Title="Добавить научного сотрудника" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Researcher" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -38,22 +38,24 @@
                 <TextBlock VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"><Run Text="Academic degree"/></TextBlock>
                 <TextBlock VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"><Run Text="Position"/></TextBlock>
 
-                <TextBox x:Name="LastName" Style="{StaticResource placeHolder}" Tag="Введите фамилию" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=LastName,
+                <TextBox x:Name="LastName" Style="{StaticResource placeHolder}" Tag="Enter last name" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=LastName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-                <TextBox x:Name="FirstName"  Style="{StaticResource placeHolder}" Tag="Введите имя" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=FirstName,
+                <TextBox x:Name="FirstName"  Style="{StaticResource placeHolder}" Tag="Etner first name" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=FirstName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
-                <TextBox x:Name="MiddleName"  Style="{StaticResource placeHolder}" Tag="Введите отчество" MaxLength="250" Grid.Row="3" Grid.Column="1" TabIndex="2" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MiddleName,
+                <TextBox x:Name="MiddleName"  Style="{StaticResource placeHolder}" Tag="Enter middle name" MaxLength="250" Grid.Row="3" Grid.Column="1" TabIndex="2" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=MiddleName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
                 <xctk:IntegerUpDown x:Name="DepartmentNumber"  MaxLength="250" Grid.Row="4" Grid.Column="1" TabIndex="3" HorizontalAlignment="Left" MinWidth="70" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=DepartmentNumber,
                                     ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Value="1"/>
                 <xctk:IntegerUpDown x:Name="Age"  MaxLength="250" Grid.Row="5" Grid.Column="1" TabIndex="4" HorizontalAlignment="Left" MinWidth="70" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Age, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
                 <ComboBox x:Name="AcademicDegree" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" TabIndex="5" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AcademicDegree,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" >
-                    <TextBlock>Доктор наук</TextBlock>
-                    <TextBlock>Кандидат наук</TextBlock>
-                    <TextBlock>Без учёной степени</TextBlock>
+                    <TextBlock>Associate's Degree</TextBlock>
+                    <TextBlock>Bachelor's Degree</TextBlock>
+                    <TextBlock>Graduate Degree</TextBlock>
+                    <TextBlock>Master's Degree</TextBlock>
+                    <TextBlock>Doctoral Degree</TextBlock>
                 </ComboBox>
-                <TextBox x:Name="Position"  Style="{StaticResource placeHolder}" Tag="Введите должность" Grid.Row="7" Grid.Column="1" TabIndex="6" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Position,
+                <TextBox x:Name="Position"  Style="{StaticResource placeHolder}" Tag="Enter position" Grid.Row="7" Grid.Column="1" TabIndex="6" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Position,
                                     ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
             </Grid>
         </GroupBox>
@@ -99,7 +101,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="CancelButton" Content="Отменить" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
+            <Button x:Name="CancelButton" Content="Cancel" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
         </Grid>
     </Grid>
 </Window>

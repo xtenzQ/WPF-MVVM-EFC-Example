@@ -7,13 +7,13 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
-        Title="Добавить отчёт" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Scientific report" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
     <Grid.RowDefinitions>
         <RowDefinition Height="auto"/>
         <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
-    <GroupBox Header="Научный отчёт" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
+    <GroupBox Header="Scientific report" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -30,13 +30,13 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Название"/></TextBlock>
-            <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"><Run Text="Регистрационный номер"/></TextBlock>
-            <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"><Run Text="Год выпуска"/></TextBlock>
-            <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="Число страниц"/></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Name"/></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"><Run Text="Register number"/></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"><Run Text="Release year"/></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="Page count"/></TextBlock>
 
 
-                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Введите название" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Enter name" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
                 <xctk:IntegerUpDown x:Name="RegisterNumber"  Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" HorizontalAlignment="Left" MinWidth="70" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=RegisterNumber,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
@@ -63,13 +63,13 @@
                             <DataTrigger.Value>
                                 <viewModel:Mode>Add</viewModel:Mode>
                             </DataTrigger.Value>
-                            <Setter Property="Content" Value="Добавить"/>
+                            <Setter Property="Content" Value="Add"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Mode}">
                             <DataTrigger.Value>
                                 <viewModel:Mode>Edit</viewModel:Mode>
                             </DataTrigger.Value>
-                            <Setter Property="Content" Value="Сохранить"/>
+                            <Setter Property="Content" Value="Save"/>
                         </DataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -84,7 +84,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="CancelButton" Content="Отменить" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
+        <Button x:Name="CancelButton" Content="Cancel" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
         </Grid>
     </Grid>
 </Window>

@@ -7,13 +7,13 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:viewModel="clr-namespace:ResearchersWPF.UI.ViewModel"
         mc:Ignorable="d"
-        Title="Добавить монографию" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Monograph" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Монография" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
+        <GroupBox Header="Monograph" Width="auto" Grid.Row="0" Padding="5, 0, 30, 0" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -30,20 +30,20 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"><Run Text="Название"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Фамилия соавтора"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"><Run Text="Имя соавтора"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"><Run Text="Отчество соавтора"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="Год издания"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"><Run Text="Число страниц"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"><Run Text="Name"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Coauthor last name"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"><Run Text="Coauthor first name"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"><Run Text="Coauthor middle name"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"><Run Text="Release year"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"><Run Text="Page count"/></TextBlock>
 
-                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Введите название" Margin="5" MaxLength="250" Grid.Row="0" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Enter name" Margin="5" MaxLength="250" Grid.Row="0" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-                <TextBox x:Name="CoauthorLastName" Style="{StaticResource placeHolder}" Tag="Введите фамилию" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorLastName,
+                <TextBox x:Name="CoauthorLastName" Style="{StaticResource placeHolder}" Tag="Enter last name" Margin="5" MaxLength="250" Grid.Row="1" Grid.Column="1" TabIndex="0" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorLastName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-                <TextBox x:Name="CoauthorFirstName"  Style="{StaticResource placeHolder}" Tag="Введите имя" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorFirstName,
+                <TextBox x:Name="CoauthorFirstName"  Style="{StaticResource placeHolder}" Tag="Enter first name" Margin="5" MaxLength="250" Grid.Row="2" Grid.Column="1" TabIndex="1" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorFirstName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-                <TextBox x:Name="CoauthorMiddleName" Style="{StaticResource placeHolder}" Tag="Введите отчество" Margin="5" MaxLength="250" Grid.Row="3" Grid.Column="1" TabIndex="2" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorMiddleName,
+                <TextBox x:Name="CoauthorMiddleName" Style="{StaticResource placeHolder}" Tag="Enter middle name" Margin="5" MaxLength="250" Grid.Row="3" Grid.Column="1" TabIndex="2" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=CoauthorMiddleName,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
                 <xctk:IntegerUpDown x:Name="ReleaseDate" Margin="5" MaxLength="250" Grid.Row="4" Grid.Column="1" TabIndex="3" HorizontalAlignment="Left" MinWidth="70" Value="{Binding UpdateSourceTrigger=PropertyChanged, Path=ReleaseDate,
                         ValidatesOnDataErrors=true, NotifyOnValidationError=true}" />
@@ -91,7 +91,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="CancelButton" Content="Отменить" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
+            <Button x:Name="CancelButton" Content="Cancel" Command="{Binding CancelCommand}" Click="btnCancel_Click" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
         </Grid>
     </Grid>
 </Window>

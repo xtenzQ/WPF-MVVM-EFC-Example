@@ -9,8 +9,20 @@
     <UserControl.Resources>
         <DataTemplate x:Key="RowButtons">
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="btnEditMonograph" Content="Edit" Click="btnEditMonograph_Click" />
-                <Button x:Name="btnDeleteMonograph" Content="Delete" Command="{Binding DeleteCommand}" />
+                <Button Background="Transparent" BorderThickness="0" Command="{Binding ShowEditCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" Fill="Gray" />
+                        </Canvas>
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" x:Name="btnDeleteResearcher" BorderThickness="0" Command="{Binding DeleteCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Fill="Gray" />
+                        </Canvas>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
@@ -22,7 +34,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid SelectionUnit="FullRow" GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvMonographList" ItemsSource="{Binding Monographs}">
+        <DataGrid CellStyle="{StaticResource Body_Content_DataGrid_Centering}" RowHeight="30" SelectionUnit="FullRow" GridLinesVisibility="None" Background="White" IsReadOnly="True" Grid.Column="0" Grid.Row="0" CanUserAddRows="False" AutoGenerateColumns="False" Height="auto" SelectionMode="Single" x:Name="lsvMonographList" ItemsSource="{Binding Monographs}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Width="*" Header="Coauthor last name" Binding="{Binding Path=CoauthorLastName }"/>
