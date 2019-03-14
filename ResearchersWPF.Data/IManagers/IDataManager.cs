@@ -7,5 +7,6 @@
         IMonographManager GetMonographManager();
         IPresentationManager GetPresentationManager();
         IReportManager GetReportManager();
+        IRequestManager GetRequestManager();
     }
 }

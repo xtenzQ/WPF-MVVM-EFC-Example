@@ -65,6 +65,7 @@
     <Content Include="Services\MonographService.svc" />
     <Content Include="Services\PresentationService.svc" />
     <Content Include="Services\ReportService.svc" />
+    <Content Include="Services\RequestService.svc" />
     <Content Include="Services\ResearcherService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -73,11 +74,13 @@
     <Compile Include="DataContracts\Monograph.cs" />
     <Compile Include="DataContracts\Presentation.cs" />
     <Compile Include="DataContracts\Report.cs" />
+    <Compile Include="DataContracts\Request.cs" />
     <Compile Include="DataContracts\Researcher.cs" />
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\IMonographService.cs" />
     <Compile Include="IServices\IPresentationService.cs" />
     <Compile Include="IServices\IReportService.cs" />
+    <Compile Include="IServices\IRequestService.cs" />
     <Compile Include="Services\ArticleService.svc.cs">
       <DependentUpon>ArticleService.svc</DependentUpon>
     </Compile>
@@ -89,6 +92,9 @@
     </Compile>
     <Compile Include="Services\ReportService.svc.cs">
       <DependentUpon>ReportService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\RequestService.svc.cs">
+      <DependentUpon>RequestService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\ResearcherService.svc.cs">
       <DependentUpon>ResearcherService.svc</DependentUpon>

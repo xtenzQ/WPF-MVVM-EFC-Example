@@ -26,12 +26,14 @@ namespace ResearchersWPF.UI.View
 
         private void Search1_Click(object sender, RoutedEventArgs e)
         {
-
+            var requestServiceClient = new svcRequest.RequestServiceClient();
+            SearchResult1.Text = requestServiceClient.GetPresentationRequest(DateTime1.Value ?? DateTime.Now).ToString();
         }
 
         private void Search2_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var requestServiceClient = new svcRequest.RequestServiceClient();
+            SearchResult2.Text = requestServiceClient.GetReportRequest(Convert.ToInt32(Updown.Text)).ToString();
         }
     }
 }

@@ -35,5 +35,10 @@ namespace ResearchersWPF.Data.Managers
         {
             return _dataManager.GetReportManager();
         }
+
+        public IRequestManager GetRequestManager()
+        {
+            return _dataManager.GetRequestManager();
+        }
     }
 }

@@ -160,6 +160,7 @@
     <Compile Include="IManagers\IMonographManager.cs" />
     <Compile Include="IManagers\IPresentationManager.cs" />
     <Compile Include="IManagers\IReportManager.cs" />
+    <Compile Include="IManagers\IRequestManager.cs" />
     <Compile Include="IManagers\IResearcherManager.cs" />
     <Compile Include="Managers\ArticleManager.cs" />
     <Compile Include="Managers\EntityFrameworkManager.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Managers\MonographManager.cs" />
     <Compile Include="Managers\PresentationManager.cs" />
     <Compile Include="Managers\ReportManager.cs" />
+    <Compile Include="Managers\RequestManager.cs" />
     <Compile Include="Managers\ResearcherManager.cs" />
     <Compile Include="Model\Article.cs" />
     <Compile Include="Model\ResDbContext.cs" />

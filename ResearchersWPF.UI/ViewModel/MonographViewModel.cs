@@ -192,29 +192,17 @@ namespace ResearchersWPF.UI.ViewModel
                         {
                             error = "Длина фамлилии должна быть меньше 196 символов!";
                         }
-                        else if (!Regex.IsMatch(CoauthorLastName, @"^[а-яА-Я]+$"))
-                        {
-                            error = "Фамилия должна содержать только русские буквы!";
-                        }
                         break;
                     case nameof(CoauthorFirstName):
                         if (string.IsNullOrEmpty(CoauthorFirstName) || CoauthorFirstName.Length > 196)
                         {
                             error = "Длина имени должна быть меньше 196 символов!";
                         }
-                        else if (!Regex.IsMatch(CoauthorFirstName, @"^[а-яА-Я]+$"))
-                        {
-                            error = "Имя должно содержать только русские буквы!";
-                        }
                         break;
                     case nameof(CoauthorMiddleName):
                         if (string.IsNullOrEmpty(CoauthorMiddleName) || CoauthorMiddleName.Length > 196)
                         {
                             error = "Длина Вашего отчества должна быть меньше 196 символов!";
-                        }
-                        else if (!Regex.IsMatch(CoauthorMiddleName, @"^[а-яА-Я]+$"))
-                        {
-                            error = "Отчество должно содержать только русские буквы!";
                         }
                         break;
                     case nameof(ReleaseDate):

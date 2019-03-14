@@ -108,6 +108,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\svcRequest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\svcResearcher\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -294,6 +299,13 @@
     <None Include="Connected Services\svcReport\ResearchersWPF.UI.svcReport.Report.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\svcRequest\RequestService.wsdl" />
+    <None Include="Connected Services\svcRequest\RequestService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\svcRequest\RequestService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\svcResearcher\ResearcherService.wsdl" />
     <None Include="Connected Services\svcResearcher\ResearcherService.xsd">
       <SubType>Designer</SubType>
@@ -315,6 +327,13 @@
     <Resource Include="favicon.ico" />
     <None Include="Resources\AddResearcher.png" />
     <None Include="Resources\edit.png" />
+    <None Include="Connected Services\svcRequest\RequestService.disco" />
+    <None Include="Connected Services\svcRequest\configuration91.svcinfo" />
+    <None Include="Connected Services\svcRequest\configuration.svcinfo" />
+    <None Include="Connected Services\svcRequest\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -335,6 +354,7 @@
     <WCFMetadataStorage Include="Connected Services\svcMonograph\" />
     <WCFMetadataStorage Include="Connected Services\svcPresentation\" />
     <WCFMetadataStorage Include="Connected Services\svcReport\" />
+    <WCFMetadataStorage Include="Connected Services\svcRequest\" />
     <WCFMetadataStorage Include="Connected Services\svcResearcher\" />
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ResearchersWPF.UI.View;
 using ResearchersWPF.UI.ViewModel;
 
 namespace ResearchersWPF.UI
@@ -25,6 +26,12 @@ namespace ResearchersWPF.UI
         {
             InitializeComponent();
             DataContext = ResearchersListViewModel.Instance();
+        }
+
+        private void OpenRequestWindow(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Request();
+            dialog.ShowDialog();
         }
     }
 }

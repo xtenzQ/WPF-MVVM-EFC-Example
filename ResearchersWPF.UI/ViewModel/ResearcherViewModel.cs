@@ -334,29 +334,17 @@ namespace ResearchersWPF.UI.ViewModel
                         {
                             error = "Длина Вашей фамлилии должна быть меньше 196 символов!";
                         }
-                        else if (!Regex.IsMatch(LastName, @"^[а-яА-Я]+$"))
-                        {
-                            error = "Фамилия должна содержать только русские буквы!";
-                        }
                         break;
                     case nameof(FirstName):
                         if (string.IsNullOrEmpty(FirstName) || FirstName.Length > 196)
                         {
                             error = "Длина Вашего имени должна быть меньше 196 символов!";
                         }
-                        else if (!Regex.IsMatch(FirstName, @"^[а-яА-Я]+$"))
-                        {
-                            error = "Имя должно содержать только русские буквы!";
-                        }
                         break;
                     case nameof(MiddleName):
                         if (string.IsNullOrEmpty(MiddleName) || MiddleName.Length > 196)
                         {
                             error = "Длина Вашего отчества должна быть меньше 196 символов!";
-                        }
-                        else if (!Regex.IsMatch(MiddleName, @"^[а-яА-Я]+$"))
-                        {
-                            error = "Отчество должно содержать только русские буквы!";
                         }
                         break;
                     case nameof(DepartmentNumber):
@@ -384,10 +372,6 @@ namespace ResearchersWPF.UI.ViewModel
                         if (string.IsNullOrEmpty(Position) || Position.Length > 100)
                         {
                             error = "Длина должности должна быть меньше 100 символов!";
-                        }
-                        else if (!Regex.IsMatch(Position, @"^[а-яА-Я]+$"))
-                        {
-                            error = "Должность должна содержать только русские буквы!";
                         }
 
                         break;

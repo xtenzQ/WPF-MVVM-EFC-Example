@@ -13,7 +13,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Введите запросы" Width="auto" Grid.Row="0" Padding="5" Margin="5">
+        <GroupBox Header="Enter requests" Width="auto" Grid.Row="0" Padding="5" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -25,17 +25,31 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"><Run Text="Доклады на конференциях"/></TextBlock>
-                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Число страниц в отчётах"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"><Run Text="Presentations on conferences"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"><Run Text="Total page count in reports"/></TextBlock>
 
-                <xctk:DateTimePicker x:Name="DateTime1" MinWidth="150" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" />
-                <ComboBox x:Name="Updown" Margin="5" Grid.Row="1" Grid.Column="1" TabIndex="0"/>
+                <xctk:DateTimePicker x:Name="DateTime1" Margin="5" Padding="5" MinWidth="150" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" />
+                <TextBox x:Name="Updown" Margin="5" Grid.Row="1" Grid.Column="1" TabIndex="0"/>
 
-                <Button x:Name="Search1" Content="Найти" Grid.Row="0" Grid.Column="2" Margin="5" Padding="5" Click="Search1_Click" />
-                <Button x:Name="Search2"  Content="Найти" Grid.Row="1" Grid.Column="2" Margin="5" Padding="5" Click="Search2_Click" />
+                <Button x:Name="Search1" Background="Transparent" BorderThickness="0" Grid.Row="0" Grid.Column="2" Click="Search1_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M9,13A3,3 0 0,0 12,16A3,3 0 0,0 15,13A3,3 0 0,0 12,10A3,3 0 0,0 9,13M20,19.59V8L14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18C18.45,22 18.85,21.85 19.19,21.6L14.76,17.17C13.96,17.69 13,18 12,18A5,5 0 0,1 7,13A5,5 0 0,1 12,8A5,5 0 0,1 17,13C17,14 16.69,14.96 16.17,15.75L20,19.59Z" Fill="Gray" />
+                        </Canvas>
+                        <TextBlock VerticalAlignment="Center">Find</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="Search2" Background="Transparent" BorderThickness="0" Grid.Row="1" Grid.Column="2" Click="Search2_Click">
+                    <StackPanel Orientation="Horizontal">
+                    <Canvas Width="24" Height="24">
+                        <Path Data="M9,13A3,3 0 0,0 12,16A3,3 0 0,0 15,13A3,3 0 0,0 12,10A3,3 0 0,0 9,13M20,19.59V8L14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18C18.45,22 18.85,21.85 19.19,21.6L14.76,17.17C13.96,17.69 13,18 12,18A5,5 0 0,1 7,13A5,5 0 0,1 12,8A5,5 0 0,1 17,13C17,14 16.69,14.96 16.17,15.75L20,19.59Z" Fill="Gray" />
+                    </Canvas>
+                    <TextBlock VerticalAlignment="Center">Find</TextBlock>
+                    </StackPanel>
+                </Button>
 
-                <TextBox x:Name="SearchResult1" IsReadOnly="True" Margin="5" Width="50" MaxLength="250" Grid.Row="0" Grid.Column="3" TabIndex="0" />
-                <TextBox x:Name="SearchResult2" IsReadOnly="True" Margin="5" Width="50" MaxLength="250" Grid.Row="1" Grid.Column="3" TabIndex="0" />
+                <TextBox x:Name="SearchResult1" Height="20" IsReadOnly="True" Margin="5" Width="50" MaxLength="250" Grid.Row="0" Grid.Column="3" TabIndex="0" />
+                <TextBox x:Name="SearchResult2" Height="20" IsReadOnly="True" Margin="5" Width="50" MaxLength="250" Grid.Row="1" Grid.Column="3" TabIndex="0" />
             </Grid>
         </GroupBox>
     </Grid>

@@ -50,6 +50,7 @@
     <Compile Include="Logic\Monograph.cs" />
     <Compile Include="Logic\Presentation.cs" />
     <Compile Include="Logic\Report.cs" />
+    <Compile Include="Logic\Request.cs" />
     <Compile Include="Logic\Researcher.cs" />
     <Compile Include="Logic\ResearcherManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
