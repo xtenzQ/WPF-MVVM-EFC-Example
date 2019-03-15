@@ -9,7 +9,7 @@
 
 ## Before we start
 
-![Main Window](https://i.imgur.com/O1c2rMI.jpg)
+![Main Window](https://i.imgur.com/ygESUiM.jpg)
 
 This application is developed with **DotNet Lead** [guide](http://www.dotnetlead.com/wpf-master-detail/application-and-source-code) as a part of *Software Development* course at [Irkutsk National Research Techincal University](http://www.istu.edu/eng/).
 
